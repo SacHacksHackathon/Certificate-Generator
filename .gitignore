@@ -1,0 +1,9 @@
+# Exclude files with PII
+*.csv
+*.txt
+
+# Exclude image files
+*.jpg
+*.jpeg
+*.png
+*.gif
