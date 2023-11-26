@@ -6,16 +6,16 @@ A set of scripts to generate and email participation and winner certificates
 ## How to run the program
 1. Make sure that the csv of certificate receivers follows the format shown below.
 2. Place the CSV file and the image template for the certificate as described in the file structure. The script should work even if you don't, but it is important for the sake of consistency. Quick TLDR:
-   1. `certificate-templates/SacHacks-[roman numeral for current iteration]` - Certificate Template
-   2. `input-data/SacHacks-[roman numeral for current iteration]` - Input CSV data
-   3. Read through the whole section about file structure before you use the script. It has a lot of tips you would find useful.
+      - `certificate-templates/SacHacks-[roman numeral for current iteration]` - Certificate Template
+      - `input-data/SacHacks-[roman numeral for current iteration]` - Input CSV data
+      - Read through the whole section about file structure before you use the script. It has a lot of tips you would find useful.
 3. Make sure to first test both parts of the script individually, and then together for a small subset of the certificates. When testing the email functionality, send it to a few members of your team to ensure that it appears as expected in a variety of devices.
 4. Create a JSON file using the format shown below to provide the required input. 
 5. Now run the script: `python3 main.py path/to/input/jsonfile.json`
-  1. First run it with the `should_send_certificates` flag set to `false` in the input JSON file - make sure all the certificates where generated properly.
-  2. Manually fix any rows with broken data and run the script again to generate the certificates for them.
-  3. Once the certificates are verified to be good to send, set the `should_create_certificates` flag to `false` and the `should_send_certificates` flag to true to send those certificates without regenerating them.
-  4. I would highly recommend you to do this process in small batches for the sake of your mental health.  
+     - First run it with the `should_send_certificates` flag set to `false` in the input JSON file - make sure all the certificates where generated properly.
+     - Manually fix any rows with broken data and run the script again to generate the certificates for them.
+     - Once the certificates are verified to be good to send, set the `should_create_certificates` flag to `false` and the `should_send_certificates` flag to true to send those certificates without regenerating them.
+     - I would highly recommend you to do this process in small batches for the sake of your mental health.  
 
 
 ## Example input for the program
@@ -84,9 +84,9 @@ Tag                   | What
     - Automatically generated certificates for all winners
 - Optional:
   - `generated-certificates/SacHacks-[rn]/participation-testing` (Optional, but recommended)
-    - Participation certificates generated using provided testing data (use the `test` flag) 
+    - Participation certificates generated using provided testing data
   - `generated-certificates/SacHacks-[rn]/winner-testing` (Optional, but recommended)
-    - Winner certificates generated using provided testing data (use the `test` flag) 
+    - Winner certificates generated using provided testing data 
   - `generated-certificates/SacHacks-[rn]/participation-manual` (Optional, Hope you don't need this)
     - Certificates generated using manually fixed and validated data
   - `generated-certificates/SacHacks-[rn]/winner-manual` (Optional, Hope you don't need this)
