@@ -1,5 +1,5 @@
 # Certificate-Generator v2.0
-A set of scripts to generate and email participation and winner certificates
+A tool to create and send certificates to participants en masse.
 
 
 # Using the program
