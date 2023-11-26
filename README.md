@@ -5,8 +5,8 @@ A tool to create and send certificates to participants en masse.
 # Using the program
 ## How to run the program
 1. Make sure that the csv of certificate receivers follows the format shown below.
-2. Edit `lines 30-35` in `src/v2/certificate_creation_helper.py` to pick the location where each customized text you want to put in a certificate goes. This should be the only code change needed each time you use this script. Refer to the surround code and the Python documentation for [Pillow](https://pillow.readthedocs.io/en/stable/).
-3. Place the CSV file and the image template for the certificate as described in the file structure. The script should work even if you don't, but it is important for the sake of consistency. Quick TLDR:
+2. Edit `lines 30-35` in `src/v2/certificate_creation_helper.py` to pick the location where each customized text you want to put in a certificate goes. This should be the only code change needed each time you use this script. Refer to the surrounding code and the Python documentation for [Pillow](https://pillow.readthedocs.io/en/stable/).
+3. Place the CSV file and the image template for the certificate as described in the file structure. The script will work even if you don't do it, but it is important for the sake of consistency. Quick TLDR:
       - `certificate-templates/SacHacks-[roman numeral for current iteration]` - Certificate Template
       - `input-data/SacHacks-[roman numeral for current iteration]` - Input CSV data
       - Read through the whole section about file structure before you use the script. It has a lot of tips you would find useful.
