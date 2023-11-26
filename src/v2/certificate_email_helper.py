@@ -15,10 +15,10 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
         for line in lines:
             line = line.strip()
             details = [x.strip() for x in line.split(",")]
-            # names[email] = [full name, team_name, feat, format_tag]
+            # names[email] = [full name, team_name, feat]
             # where feat is what we are giving this certificate to the participant for:
             # Example: "for participating", "for being the second runner up in the Best Local Hack track", etc.
-            names[details[3]] = [details[1] + " " + details[2], details[4], details[5]]
+            names[details[3]] = [details[1] + " " + details[2], details[4]]
 
     # get a list of all the certificates generated earlier
     pic_list = os.listdir(images_folder_path)
@@ -41,16 +41,12 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
                 # {team_name} - Team name of the participant
                 # {feat} - Why we are giving this certificate to the participant: 
                 #          "for participating", "for being the second runner up in the Best Local Hack track", etc.
-                # {format_open_tag} - The opening tag for the feat. Example: <b>, <i>, etc.
-                # {format_close_tag} - The closing tag for the feat. Example: </b>, </i>, etc.
 
                 body = main_body.format(
                     first_name=names[current_email][0].split(" ")[0],
                     last_name=names[current_email][0].split(" ")[1],
                     team_name=names[current_email][1],
                     feat=names[current_email][2],
-                    feat_format_open_tag=names[current_email][2].split(" ")[0].lower(),
-                    feat_format_close_tag=names[current_email][2].split(" ")[-1].lower()
                 )
                 
                 # Create a multipart message and set headers

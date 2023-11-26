@@ -1,0 +1,15 @@
+{
+  "csv_file_path": "path/to/csv/file", // Where the CSV of certificate receivers is
+  "certificate_template_path": "path/to/certificate/template", // Where the certificate template is
+  "font_file_path": "path/to/font/file", // Where the .tiff font file is
+  "font_color": "white", // eg: "white", "black" --> pick the font color
+  "font_size": 70, // pick the size of the font
+  "images_folder_path": "path/to/images/folder", // Where the generated certificates should be stored
+  "should_create_certificates": true, // Should certificates be created? Set to false if the certificates have already been made.
+  "should_send_certificates": true, // Should the certificates be sent? Set to false if you only want the certificates to be created and not sent to anyone yet.
+  "email": "example@example.com", // The email the certificates should be sent from
+  "password": "password123", // Password of the above email
+  "subject": "Certificate Subject", // Subject of email sent to certificate receivers
+  "body": "Certificate Body", // Body of the email sent --> Refer to the Email Personalization Tags section below for more info.
+  "log_file_path": "path/to/log/file" // Where should the logs be stored?
+}

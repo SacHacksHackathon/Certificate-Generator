@@ -25,6 +25,7 @@ def main():
     subject = data.get("subject")
     body = data.get("body")
     log_file_path = data.get("log_file_path")
+    font_size = data.get("font_size")
 
     log = open(log_file_path, "a")
     print("Starting...\n" + "_"*10, file=log)
@@ -33,7 +34,7 @@ def main():
     if not csv_file_path or not images_folder_path or \
        not should_send_certificates or not email or not password or \
        not subject or not body or not log_file_path or not certificate_template_path\
-       or not font_file_path or not font_color:
+       or not font_file_path or not font_color or not font_size:
         print("Please provide all the required fields in the JSON file.", file=log)
         return
     
@@ -47,8 +48,9 @@ def main():
                 if counter != 1:
                     make_certificate(
                         name, counter, " from Team ", 
-                        font_color, certificate_template_path, font_file_path,
-                        images_folder_path, log_file_path
+                        font_color, font_size, font_file_path,
+                        certificate_template_path, images_folder_path, 
+                        log_file_path
                     )
                 counter += 1
 

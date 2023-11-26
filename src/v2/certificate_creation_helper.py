@@ -3,8 +3,9 @@ from PIL import Image, ImageFont, ImageDraw
 # Function to create a certificate, and store it as a .png file.
 def make_certificate(
         name, counter, mod_text, 
-        font_color, image_source, font_file_path,
-        image_folder, log_file_path
+        font_color, font_size, font_file_path,
+        image_source, image_folder, 
+        log_file_path
     ):
 
     template = Image.open(image_source)
