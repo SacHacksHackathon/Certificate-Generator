@@ -5,13 +5,14 @@ A set of scripts to generate and email participation and winner certificates
 # Using the program
 ## How to run the program
 1. Make sure that the csv of certificate receivers follows the format shown below.
-2. Place the CSV file and the image template for the certificate as described in the file structure. The script should work even if you don't, but it is important for the sake of consistency. Quick TLDR:
+2. Edit `lines 30-35` in `src/v2/certificate_creation_helper.py` to pick the location where each customized text you want to put in a certificate goes. This should be the only code change needed each time you use this script. Refer to the surround code and the Python documentation for [Pillow](https://pillow.readthedocs.io/en/stable/).
+3. Place the CSV file and the image template for the certificate as described in the file structure. The script should work even if you don't, but it is important for the sake of consistency. Quick TLDR:
       - `certificate-templates/SacHacks-[roman numeral for current iteration]` - Certificate Template
       - `input-data/SacHacks-[roman numeral for current iteration]` - Input CSV data
       - Read through the whole section about file structure before you use the script. It has a lot of tips you would find useful.
-3. Make sure to first test both parts of the script individually, and then together for a small subset of the certificates. When testing the email functionality, send it to a few members of your team to ensure that it appears as expected in a variety of devices.
-4. Create a JSON file using the format shown below to provide the required input. 
-5. Now run the script: `python3 main.py path/to/input/jsonfile.json`
+4. Make sure to first test both parts of the script individually, and then together for a small subset of the certificates. When testing the email functionality, send it to a few members of your team to ensure that it appears as expected in a variety of devices.
+5. Create a JSON file using the format shown below to provide the required input. 
+6. Now run the script: `python3 main.py path/to/input/jsonfile.json`
      - First run it with the `should_send_certificates` flag set to `false` in the input JSON file - make sure all the certificates where generated properly.
      - Manually fix any rows with broken data and run the script again to generate the certificates for them.
      - Once the certificates are verified to be good to send, set the `should_create_certificates` flag to `false` and the `should_send_certificates` flag to true to send those certificates without regenerating them.
