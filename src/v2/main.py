@@ -32,8 +32,9 @@ def main():
 
     # If the JSON file does not contain the required fields, return.
     if not csv_file_path or not images_folder_path or \
-       not should_send_certificates or not email or not password or \
-       not subject or not body or not log_file_path or not certificate_template_path\
+       should_send_certificates == None or should_send_certificates == None \
+       or not email or not password or not subject or not body \
+       or not log_file_path or not certificate_template_path \
        or not font_file_path or not font_color or not font_size:
         print("Please provide all the required fields in the JSON file.", file=log)
         return
@@ -54,11 +55,13 @@ def main():
                     )
                 counter += 1
 
-            print(len(names), "certificates done.", file=log)
+            print(len(names) - 1, "certificates done.", file=log)
     
     if should_send_certificates:
         print("Sending certificates...", file=log)
-        send_certificates(csv_file_path, images_folder_path, email, password, subject, body, log_file_path)
+        send_certificates(csv_file_path, images_folder_path, 
+                          email, password, subject, 
+                          "".join(body), log_file_path)
         print("Certificates sent.", file=log)
         
     print("Done.", file=log)

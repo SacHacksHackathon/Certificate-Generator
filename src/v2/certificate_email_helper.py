@@ -18,7 +18,7 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
             # names[email] = [full name, team_name, feat]
             # where feat is what we are giving this certificate to the participant for:
             # Example: "for participating", "for being the second runner up in the Best Local Hack track", etc.
-            names[details[3]] = [details[1] + " " + details[2], details[4]]
+            names[details[3]] = [details[1] + " " + details[2], details[4], details[5]]
 
     # get a list of all the certificates generated earlier
     pic_list = os.listdir(images_folder_path)
@@ -32,8 +32,7 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
         for pic in pic_list:
             try: 
                 current_email = pic.split("-")[-1].split(".png")[0]
-                subject = "Thanks for Participating in SacHacks IV!"
-                print(current_email)
+                print(current_email, file=log)
 
                 # Replace the following tags with the appropriate values:
                 # {first_name} - Full name of the participant
@@ -48,7 +47,7 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
                     team_name=names[current_email][1],
                     feat=names[current_email][2],
                 )
-                
+
                 # Create a multipart message and set headers
                 message = MIMEMultipart()
                 message["From"] = email

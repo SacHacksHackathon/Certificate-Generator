@@ -34,7 +34,7 @@ A set of scripts to generate and email participation and winner certificates
   "email": "example@example.com", // The email the certificates should be sent from
   "password": "password123", // Password of the above email
   "subject": "Certificate Subject", // Subject of email sent to certificate receivers
-  "body": "Certificate Body", // Body of the email sent --> Refer to the Email Personalization Tags section below for more info.
+  "body": ["Certificate Body\n", "Second line"], // Body of the email sent --> Refer to the Email Personalization Tags section below for more info.
   "log_file_path": "path/to/log/file" // Where should the logs be stored?
 }
 ```
