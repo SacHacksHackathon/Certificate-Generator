@@ -17,8 +17,22 @@ def make_certificate(
     image_source = Image.open(image_source)
     draw = ImageDraw.Draw(image_source)
 
-    # Finding the width and height of the text. 
     lines = name.split(",")
+    full_name = lines[1] + " " + lines[2]
+    feat = lines[5]
+    
+    # Participation:
+    # name_width, name_height = draw.textsize(full_name, font=font_file)
+    # draw.text(((width - name_width) / 2, (height - name_height) / 2 + 77), full_name, fill=font_color, font=font_file)
+
+    # Winner:
+    name_width, name_height = draw.textsize(full_name, font=font_file)
+    feat_width, feat_height = draw.textsize(feat, font=font_file)
+
+    draw.text(((width - name_width) / 2, (height - feat_height - name_height) / 2 + 25), full_name, fill=font_color, font=font_file)
+    draw.text(((width - feat_width) / 2, (height - feat_height) / 2 + 150), feat, fill=font_color, font=font_file)
+
+    # lines = name.split(",")
     # lines = [line.strip() for line in lines]
     # if len(lines[4].strip()) == 0 or lines[4].strip().lower().startswith("team") and len(lines[4].strip()) == 4:
     #     full_string = lines[1] + " " + lines[2]
@@ -26,16 +40,6 @@ def make_certificate(
     #     full_string = lines[1] + " " + lines[2] + mod_text + "\"" + lines[4][5:] + "\""
     # else:
     #     full_string = lines[1] + " " + lines[2] + "," + mod_text + "\"" + lines[4] + "\""
-
-    full_string = lines[1] + " " + lines[2]
-    name_width, name_height = draw.textsize(full_string, font=font_file)
-    # what_width, what_height = draw.textsize(lines[4], font=FONT_FILE)
-    # mod_width, mod_height = draw.textsize(mod_text, font=FONT_FILE)
-
-    # Placing it in the center, then making some adjustments.
-    draw.text(((width - name_width) / 2, (height - name_height) / 2 + 77), full_string, fill=font_color, font=font_file)
-    # draw.text(((WIDTH - mod_width) / 2, (HEIGHT - what_height - mod_height) / 2 + 50), mod_text, fill=FONT_COLOR, font=FONT_FILE2)
-    # draw.text(((WIDTH - what_width) / 2, (HEIGHT - what_height) / 2 + 225), lines[4], fill=FONT_COLOR, font=FONT_FILE)
 
     # Saving the certificates in a different directory.
     image_source.save(image_folder + "/" + str(counter) + "-" + name.split(",")[3].strip() +".png")
