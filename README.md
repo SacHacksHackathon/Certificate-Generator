@@ -44,6 +44,8 @@ Entry Number | First Name | Last Name | Email | Team Name | Feat |
 |   ------   |    ---     |    ---    |   --  |    ---    |  --  |
 1            | Adityaa    | Ravi      |       | SacHacks  | for organizing SacHacks IV and V     
 
+Note: If you want to provide multiple certificates to same person for accomplishing different "feats," then please create a new entry for each feat.  
+
 ## Email Personalization Tags
 
 Tag                   | What

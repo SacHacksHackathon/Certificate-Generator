@@ -18,7 +18,11 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
             # names[email] = [full name, team_name, feat]
             # where feat is what we are giving this certificate to the participant for:
             # Example: "for participating", "for being the second runner up in the Best Local Hack track", etc.
-            names[details[3]] = [details[1] + " " + details[2], details[4], details[5]]
+            if details[3] not in names:
+                names[details[3]] = [details[1] + " " + details[2], details[4], [details[5]]]
+            else:
+                names[details[3]][2].append(details[5])
+
 
     # get a list of all the certificates generated earlier
     pic_list = os.listdir(images_folder_path)
@@ -45,7 +49,7 @@ def send_certificates(csv_file_path, images_folder_path, email, password, subjec
                     first_name=names[current_email][0].split(" ")[0],
                     last_name=names[current_email][0].split(" ")[1],
                     team_name=names[current_email][1],
-                    feat=names[current_email][2],
+                    feat=" and the ".join(names[current_email][2]),
                 )
 
                 # Create a multipart message and set headers
